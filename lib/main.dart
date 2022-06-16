@@ -39,8 +39,7 @@ class _MyHomePageState extends State<MyHomePage> {
         backgroundColor: Colors.blue[200],
       ),
       body: Center(
-        child: Lottie.network(
-            'https://assets9.lottiefiles.com/packages/lf20_r4yxAr.json'),
+        child: Lottie.asset('assets/waiting.json'),
       ),
     );
   }
