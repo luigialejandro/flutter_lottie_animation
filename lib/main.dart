@@ -39,8 +39,41 @@ class _MyHomePageState extends State<MyHomePage> {
         backgroundColor: Colors.blue[200],
       ),
       body: Center(
-        child: Lottie.asset('assets/waiting.json'),
+        child: Column(
+          children: [
+            Lottie.asset('assets/waiting.json'),
+            SizedBox(height: 32),
+            ElevatedButton.icon(
+                style: ElevatedButton.styleFrom(
+                  padding: EdgeInsets.symmetric(horizontal: 15),
+                  textStyle: TextStyle(fontSize: 28),
+                ),
+                onPressed: showDoneDialog(),
+                icon: Icon(Icons.system_security_update_good_outlined),
+                label: Text('Submitting button'))
+          ],
+        ),
       ),
     );
   }
+
+  showDoneDialog() => showDialog(
+      barrierDismissible: false,
+      context: context,
+      builder: (context) => Dialog(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Lottie.asset(
+                  'assets/done.json',
+                  repeat: false,
+                ),
+                Text(
+                  'Request submitted',
+                  style: TextStyle(fontSize: 24),
+                ),
+                const SizedBox(height: 16),
+              ],
+            ),
+          ));
 }
