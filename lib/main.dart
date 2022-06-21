@@ -29,7 +29,25 @@ class MyHomePage extends StatefulWidget {
   State<MyHomePage> createState() => _MyHomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _MyHomePageState extends State<MyHomePage>
+    with SingleTickerProviderStateMixin {
+  late AnimationController controller;
+
+  @override
+  void initState() {
+    super.initState();
+
+    controller =
+        AnimationController(duration: Duration(seconds: 3), vsync: this);
+  }
+
+  @override
+  void dispose() {
+    controller.dispose();
+
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -67,6 +85,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 Lottie.asset(
                   'assets/done.json',
                   repeat: false,
+                  controller: controller,
                 ),
                 Text(
                   'Request submitted',
