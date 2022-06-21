@@ -48,7 +48,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   padding: EdgeInsets.symmetric(horizontal: 15),
                   textStyle: TextStyle(fontSize: 28),
                 ),
-                onPressed: showDoneDialog(),
+                onPressed: showDoneDialog,
                 icon: Icon(Icons.system_security_update_good_outlined),
                 label: Text('Submitting button'))
           ],
